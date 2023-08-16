@@ -1,0 +1,5 @@
+pyrogram-2.0.102
+TgCrypto
+spotdl
+requests
+yt-dlp
