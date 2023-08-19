@@ -1,0 +1,13 @@
+{
+    "api_id" : 26257824,
+    "api_hash" : "fcd5ae25cf2c155671549db115710769",
+    "chat_ids_path" : "chat_ids.txt",
+    "bot_name" : "UniversalBot",
+    "bot_username" : "eduneascorbinbot",
+    "bot_token" : "5957089360:AAH8fzbYxyZN1zGXkCJCV2cmWGn8P5K6Px0",
+    "downloads_path" : "downloads",
+    "logs_path" : "logs\\log_files",
+    "allowed_users" : [
+        "neascorbinka"
+    ]
+}

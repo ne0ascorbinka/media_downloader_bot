@@ -112,9 +112,9 @@ def set_admin_handlers(app: Client):
     
     app.add_handler(CallbackQueryHandler(select_period_menu, dynamic_data_filter(["users", "updates", "successes"])))
 
-    # its not effective since to check the correspondance filter searches throghout the whole list which is O(N)
+    # its not effective since to check the correspondance filter searches throughout the whole list which is O(N)
     # while if we write our own filter which deconstructs callback_query's
-    # data it will take time O(1) but I fucked its mouth
+    # data it will take time O(1) but I fucked its mouths 
     # better use regexes
     typed_stats_types = ("updates", "successes")
     periods = ("day", "yesterday", "week", "month")
