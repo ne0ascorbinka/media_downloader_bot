@@ -30,7 +30,7 @@ async def spotify_handler(client: Client, message: Message):
 
     pool_executor = (other_pool_executor, vip_pool_executor)[id in vip_ids]
     pool_executor.submit(
-        test_spotify.spotify_downloader,
+        spotify.spotify_downloader,
         client,
         id,
         link,

@@ -1,7 +1,10 @@
 from pyrogram import Client
 from config.config import config, chat_ids
 from logs.logger import logger
+#TODO: fix
 from handlers.regular_handlers import RegularHandlers
+from handlers.admin_handlers import AdminHandlers
+from handlers import RegularHandlers, AdminHandlers, LinkHandlers
 
 class Bot:
     def __init__(self):
@@ -14,6 +17,7 @@ class Bot:
         return Client(config.BOT_NAME, api_id=config.API_ID, api_hash=config.API_HASH, bot_token=config.BOT_TOKEN)
 
     def load_chat_ids(self):
+        # TODO: maybe add some storage class for chat_ids
         try:
             with open("chat_ids.txt", "r") as file:
                 for line in file.readlines():
@@ -22,7 +26,10 @@ class Bot:
             pass
 
     def set_handlers(self):
-        RegularHandlers(self.client).register_handlers()
+        client = self.client
+        LinkHandlers(client).register_handlers()
+        AdminHandlers(client).register_handlers()
+        RegularHandlers(client).register_handlers()
 
     async def notify_users(self):
         async with self.greeter_client:

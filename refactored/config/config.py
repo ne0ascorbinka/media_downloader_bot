@@ -1,4 +1,5 @@
 import json
+from concurrent.futures import ThreadPoolExecutor
 
 class Config:
     def __init__(self, config_path="config.json"):
@@ -17,3 +18,4 @@ class Config:
 config = Config()
 
 chat_ids = set() # set of ids of bot users
+pool_executor = ThreadPoolExecutor(max_workers=1)
