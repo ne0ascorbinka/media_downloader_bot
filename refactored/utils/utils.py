@@ -65,4 +65,4 @@ class HandlerFactory:
         elif re.match(YOUTUBE_URL_PATTERN, url):
             print("matched YT regex")
             return YouTubeHandler(client, id, url)
-        return BaseHandler(client, id, url)
+        return None

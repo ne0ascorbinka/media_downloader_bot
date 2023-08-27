@@ -8,24 +8,25 @@ import traceback
 import os
 
 class YouTubeDownloader(BaseDownloader):
-    def __init__(self, client: Client, id: int, url: str, callback_query: CallbackQuery = None) -> None:
+    def __init__(self, client: Client, id: int, url: str, callback_query: CallbackQuery = None, query_type: str = "youtube") -> None:
         super().__init__(client, id, url)
         self.callback_query = callback_query
+        self.query_type = query_type
     
     def download(self) -> None:
         dic_of_quality = {
-        "1080p": 1080,
-        "1080p60": 1080,
-        "720p": 720,
-        "720p60": 720,
-        "480p": 480,
-        "480p60": 480,
-        "360p": 360,
-        "360p60": 360,
-        "240p60":240,
-        "240p":240,
-        "144p60":144,
-        "144p":144
+            "1080p": 1080,
+            "1080p60": 1080,
+            "720p": 720,
+            "720p60": 720,
+            "480p": 480,
+            "480p60": 480,
+            "360p": 360,
+            "360p60": 360,
+            "240p60": 240,
+            "240p": 240,
+            "144p60": 144,
+            "144p": 144
         }
 
         message = self.callback_query.message

@@ -7,8 +7,9 @@ from .base_downloader import BaseDownloader
 from config import config
 
 class TiktokDownloader(BaseDownloader):
-    def __init__(self, client: Client, id: int, url: str) -> None:
+    def __init__(self, client: Client, id: int, url: str, query_type: str = "tiktok") -> None:
         super().__init__(client, id, url)
+        self.query_type = query_type
     
     def download(self) -> None:
         self.sent_message = self.client.send_message(self.id, "__Downloading...__")
@@ -27,7 +28,6 @@ class TiktokDownloader(BaseDownloader):
 
         response = requests.get(url, headers=headers, params=querystring)
 
-        # print(response.json())
         download_url = response.json()["video_url"]
 
         directory = self.folder_path

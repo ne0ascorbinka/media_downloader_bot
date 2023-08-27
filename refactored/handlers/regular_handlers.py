@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.handlers import MessageHandler
+from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 from pyrogram.types import Message
 from handlers import HandlerRegistry
 from logs.logger import logger
@@ -13,11 +13,11 @@ class RegularHandlers(HandlerRegistry):
         client = self.client
 
         client.add_handler(MessageHandler(self.start_command, filters.command("start")))
+        client.add_handler(CallbackQueryHandler(self.start_command, filters.command("start")))
         client.add_handler(MessageHandler(RegularHandlers.message_handler, filters.text))
 
     @staticmethod
     async def start_command(client: Client, message: Message):
-        logger.debug("received start command")
         await message.reply_text("Hello!")
     
     @staticmethod
